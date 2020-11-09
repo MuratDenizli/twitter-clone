@@ -6,6 +6,7 @@ import { Home } from '../components/icons'
 import TextTtle from '../components/text-title'
 import Navigation from '../components/navigation'
 import ThemeButton from '../components/theme-button'
+import Stack from '../components/stack'
 
 export default {
   title: 'Buttons'
@@ -13,13 +14,13 @@ export default {
 
 export const Normal = () => <Button>Save</Button>
 export const Theme = () => (
-  <div>
+  <Stack column>
     <ThemeButton>Save</ThemeButton>
     <ThemeButton full>Save Full</ThemeButton>
     <ThemeButton full big>
-      Save Full
+      Save Big Button
     </ThemeButton>
-  </div>
+  </Stack>
 )
 
 export const NavButton = () => (
