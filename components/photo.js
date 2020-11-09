@@ -2,7 +2,10 @@ import React from 'react'
 import cn from 'classnames'
 import styles from './photo.module.css'
 
-function Photo({ src, alt, children }) {
+function Photo({
+  src = 'https://pbs.twimg.com/profile_images/1100647905948549120/gVpCqdlm_400x400.png',
+  alt
+}) {
   return (
     <div className={cn(styles.photo)}>
       <img className={styles.img} src={src} alt={alt} />
