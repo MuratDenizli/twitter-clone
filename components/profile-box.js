@@ -1,17 +1,21 @@
 import React from 'react'
 import cn from 'classnames'
 import Photo from '../components/photo'
+import Button from '../components/button'
 import styles from './profile-box.module.css'
+import { ArrowBottom } from './icons'
+import TextBody from '../components/text-body'
 
 function ProfileBox({ name = 'Murat Denizli', slug = 'muratdenizli29' }) {
   return (
-    <div className={cn([styles.box])}>
+    <Button className={cn([styles.box])}>
       <Photo />
-      <div>
-        <p>{name}</p>
-        <p>@{slug}</p>
+      <div className={styles.body}>
+        <TextBody bold={true}>{name}</TextBody>
+        <TextBody className={styles.slug}>@{slug}</TextBody>
       </div>
-    </div>
+      <ArrowBottom className={styles.icon} />
+    </Button>
   )
 }
 
