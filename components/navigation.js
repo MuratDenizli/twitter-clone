@@ -15,6 +15,8 @@ import {
   More
 } from './icons'
 
+const MENU = [{ key: 'home', icon: <Home />, title: 'Home' }]
+
 import styles from './navigation.module.css'
 
 function Navigation({ flat = false, selectedKey }) {
@@ -24,10 +26,12 @@ function Navigation({ flat = false, selectedKey }) {
         <Twitter />
       </NavigationButton>
 
-      <NavigationButton selected={selectedKey === 'home'}>
-        <Home />
-        <TextTitle>Home</TextTitle>
-      </NavigationButton>
+      {MENU.map((menu) => (
+        <NavigationButton selected={selectedKey === 'home'}>
+          {menu.icon}
+          <TextTitle>{menu.title}</TextTitle>
+        </NavigationButton>
+      ))}
 
       <NavigationButton selected={selectedKey === 'explore'}>
         <Explore />
