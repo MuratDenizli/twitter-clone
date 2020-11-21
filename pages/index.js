@@ -1,25 +1,28 @@
 import React from 'react'
+import useSWR from 'swr'
+
+import styles from './index.module.css'
 
 import Layout from '../components/layout'
 import Tweet from '../components/tweet'
+import Loading from '../components/loading'
+import fetcher from '../lib/fetch'
+// import Loading from '../components/loading'
 
 function HomePage() {
+  const { data } = useSWR('/api/tweet', fetcher)
+
   return (
     <Layout>
-      <Tweet
-        name="Murat Denizli"
-        slug="muratdenizli29"
-        datetime={new Date('2020-08-02')}
-        text={`Tweet1`}
-      />
-      <Tweet
-        name="Murat Denizli"
-        slug="muratdenizli29"
-        datetime={new Date('2020-08-02')}
-        text={`Tweet 2
-        
-        buda aşağıya geçilmiş hali`}
-      />
+      {!data && (
+        <div className={styles.loading}>
+          <Loading />
+        </div>
+      )}
+
+      {/* {data?.statuses.map((tweet) => {
+        return <Tweet key={tweet.id} {...tweet} />
+      })} */}
     </Layout>
   )
 }
